@@ -1,0 +1,119 @@
+{% extends "min_base.html" %}
+{% block content %}
+<div class="container">
+   <ul class="list-group">
+      {% for file in files %}
+      <div class="row mb-2">
+         <div class="col-7">
+            <a href="{{file[1]}}" target="blank" class="list-group-item list-group-item-action">
+            {{file[0]}}
+            </a>
+         </div>
+         <div class="col-3">
+            <div class="dropdown">
+               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               CloudSets
+               </button>
+               <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
+                  {% for set in sets %}
+                  <div class="dropdown-item" href="#">
+                     <div class="form-check">
+                        {% if set == defaultSet %}
+                        <input class="form-check-input" type="checkbox" checked disabled id="{{file[0] + loop.index0 | safe}}">
+                        {% elif set in fileMapSets[file[0]] %}
+                        <input class="form-check-input" type="checkbox" checked id="{{file[0] + loop.index0 | safe}}">
+                        {% else %}
+                        <input class="form-check-input" type="checkbox" id="{{file[0] + loop.index0 | safe}}">
+                        {% endif %}
+                        <label class="form-check-label" for="defaultCheck1">
+                        {{set}}
+                        </label>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+         <div class="col-2">
+            <button class="btn btn-danger">Delete</button>
+         </div>
+      </div>
+      {% endfor %}
+   </ul>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.dropdown-toggle').dropdown();
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('a').each(function(key, value) {
+      var fileName = $(this).text().trim();
+      var dropdown_menu = $(this).parent().parent();
+      dropdown_menu.find("input").each(function(keyB, valueB) {
+        $(valueB).change(function() {
+          if ($(this).is(":checked")) {
+            $.ajax({
+              url: "{{url_for('linkFileToCloudset')}}",
+              data: {
+                fileName: fileName,
+                setName: $(this).next("label").text().trim(),
+                toLinked: "true"
+              }
+            }).done(function(data) {
+              if(data === "OK"){
+                alertify.success('Updated');
+              }else{
+                 alertify.error('Error');
+              }
+            });
+          } else {
+            $.ajax({
+              url: "{{url_for('linkFileToCloudset')}}",
+              data: {
+                fileName: fileName,
+                setName: $(this).next("label").text().trim(),
+                toLinked: "false"
+              }
+            }).done(function(data) {
+              if(data === "OK"){
+                 alertify.success('Updated');
+              }else{
+                 alertify.error('Error');
+              }
+            });
+          }
+        });
+      });
+    });
+
+    $('.btn-danger').each(function(key, value) {
+      var htmlLine = $(this).parent().parent();
+      var fileName = $(htmlLine).find("a").text();
+      $(this).on("click", function(){
+          $.ajax({
+                  url: "{{url_for('deleteFile')}}",
+                  data: {
+                    fileName: fileName
+                  }
+                }).done(function(data) {
+                  if(data === "OK"){
+                     alertify.success('Deleted');
+                     // Remove the html line corresponding to this file
+                     $(htmlLine).fadeOut(500, function() {
+                          $(htmlLine).remove();
+                      });
+                  }else{
+                     alertify.error('Error');
+                  }
+                });
+        });
+      });
+
+  });
+</script>
+{% endblock %}}

@@ -1,0 +1,187 @@
+% #######################################
+% ########### FILL THESE IN #############
+% #######################################
+\def\mytitle{SetCloud}
+\def\mykeywords{Louis, Boursier, Flask, Python, Web, application, set, cloud, SetCloud}
+\def\myauthor{Louis Boursier}
+\def\contact{40404293@napier.ac.uk}
+\def\mymodule{SET09103}
+% #######################################
+% #### YOU DON'T NEED TO TOUCH BELOW ####
+% #######################################
+\documentclass[10pt, a4paper]{article}
+\usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.75cm,bottom=1.5cm]{geometry}
+\twocolumn
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+%colour our links, remove weird boxes
+\usepackage[colorlinks,linkcolor={black},citecolor={blue!80!black},urlcolor={blue!80!black}]{hyperref}
+%Stop indentation on new paragraphs
+\usepackage[parfill]{parskip}
+%% Arial-like font
+\IfFileExists{uarial.sty}
+{
+    \usepackage[english]{babel}
+    \usepackage[T1]{fontenc}
+    \usepackage{uarial}
+    \renewcommand{\familydefault}{\sfdefault}
+}{
+    \GenericError{}{Couldn't find Arial font}{ you may need to install 'nonfree' fonts on your system}{}
+    \usepackage{lmodern}
+    \renewcommand*\familydefault{\sfdefault}
+}
+%Napier logo top right
+\usepackage{watermark}
+%Lorem Ipusm dolor please don't leave any in you final report ;)
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{listings}
+%give us the Capital H that we all know and love
+\usepackage{float}
+%tone down the line spacing after section titles
+\usepackage{titlesec}
+%Cool maths printing
+\usepackage{amsmath}
+%PseudoCode
+\usepackage{algorithm2e}
+
+\titlespacing{\subsection}{0pt}{\parskip}{-3pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\paragraph}{0pt}{\parskip}{\parskip}
+\newcommand{\figuremacro}[5]{
+    \begin{figure}[#1]
+        \centering
+        \includegraphics[width=#5\columnwidth]{#2}
+        \caption[#3]{\textbf{#3}#4}
+        \label{fig:#2}
+    \end{figure}
+}
+
+\lstset{
+	escapeinside={/*@}{@*/}, language=C++,
+	basicstyle=\fontsize{8.5}{12}\selectfont,
+	numbers=left,numbersep=2pt,xleftmargin=2pt,frame=tb,
+    columns=fullflexible,showstringspaces=false,tabsize=4,
+    keepspaces=true,showtabs=false,showspaces=false,
+    backgroundcolor=\color{white}, morekeywords={inline,public,
+    class,private,protected,struct},captionpos=t,lineskip=-0.4em,
+	aboveskip=10pt, extendedchars=true, breaklines=true,
+	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\color[rgb]{0.627,0.126,0.941}
+}
+
+\thiswatermark{\centering \put(336.5,-38.0){\includegraphics[scale=0.8]{logo}} }
+\title{\mytitle}
+\author{\myauthor\hspace{1em}\\\contact\\Edinburgh Napier University\hspace{0.5em}-\hspace{0.5em}\mymodule}
+\date{}
+\hypersetup{pdfauthor=\myauthor,pdftitle=\mytitle,pdfkeywords=\mykeywords}
+\sloppy
+% #######################################
+% ########### START FROM HERE ###########
+% #######################################
+\begin{document}
+    \maketitle
+    \begin{abstract}
+	This document is a report for the second coursework in the advanced web technologies module\cite{module}. For this coursework, we had to build a web application prototype. The objective is to demonstrate our understanding of server-side web development, mastery of the Python Flask micro-framework and the role of HTTP and related protocols in the design of robust and scalable web application. We should achieve this by completing a personal project in which we design, implement, and evaluate a web application on a topic of our choice.
+    \end{abstract}
+
+\textbf{Keywords -- }{\mykeywords} 
+
+\section{Introduction}
+I chose to build a website which provides a file management system based on the mathematical set. The idea is to create a new way to classify, organize, and retrieve files. This kind of file management has not for objective to replace the current used tree based hierarchy file system, but to give the user with a different way of managing his files. The idea of using mathematical set and not nested folders also extends to a right and privilege administration over those files. I will talk more about this later in the enhancement section
+
+\figuremacro{h}{home}{Website home page}{ - The user should always go through the identification page to connect or create an account in order to use the application}{1.0}
+
+The home page is the entry point of the application. This ensure that the user is always identified and verified. From this page, the user can either create a new account with a valid an non existing email address, or login thanks to an already existing account. If the email chosen to create an account is already in use, the process is aborted and the user is notified. When trying to log in, the same thing append if the credentials are invalids.
+
+\figuremacro{h}{menu}{Main page}{ - This page displayed the upload input, followed by the search input and the set visualizer}{1.0}
+
+\figuremacro{h}{help}{Help for the set operations}{ - This pop up is launched when the user clicked on the help button. It explains which characters correspond to which set operations}{1.0}
+
+\figuremacro{h}{files}{Files visualization after using the search input}{ - Here are shown the files for which their set correspond to the input search command. The user can edit the set for each file, and delete them.}{1.0}
+
+On the main menu page, the first input is for the file uploading. The user choose one file to upload (it can be any kind of file, but for a security safety, I only allowed the most basics files like images and PDFs). After having chosen the file, the user should specify the SetCloud (the set's name) corresponding to this file. The more sets the user can specifies, the better the search and classification will perform. For each file, the default set is always implicitly applied. This ensure that there is no file without SetCloud, and that the user can get his hands on all his files. It also makes the set operations work better. Once the file uploaded, the file will transparently be saved in the user's google drive account (for which he has been prompted to connect before). All the SetCloud files will be in a same folder in his account, for which he should not touch or even know the existence. As soon as a file has been uploaded, the visualization at the bottom of the page is updated to match the current state of the files and their SetCloud.
+
+The second search input is for searching file using set operations. If no set is specify by the user, only the default set will be applied, which will have for effect to print all the user's files. Otherwise, the user could use as many set and set operations has he wants. For the moment, the parenthesis are not supported. Hence, the logical order is from left to right.
+\begin{equation}
+SetA - SetB - SetC | SetD
+\end{equation}
+
+The files page is displayed after a search. It is displayed there all the files for which their sets correspond to the previous command. From this page, the user can add or remove a SetCloud for a file, and delete a file. All those operations are done thanks to AJAX, meaning that the user does not have to reload the page. A notifiication pop up to inform the user of the success of the operation.
+
+\section{Design}
+
+\figuremacro{h}{url_hierarchy}{URL Hierarchy}{}{1.0}
+
+\section{Enhancements}
+In this part, I will elaborate on what can be improved or do to improve the existing project.
+\subsection{Add a right and privilege system}
+Using the same mathematical set concept, I could build a right system leveraging the sets. Like for the file search, this could allow more efficient and powerful way of setting files rights. I can think of different subgroups levels, from the basic user, to the administrator and the root user. The root having  the administrator for subset, and the administrator having the user for subset. Rules can also by applied conerning files for the groups thanks to the already existing file search.
+\subsection{SetCloud proposal for images}
+Using AI (like the Amazon Rekognition API), I could suggest SetCloud name for images based on the image content.
+\subsection{Extend the SetCloud visualizer}
+Like the windows file explorer, I want my visualizer to print all the files when the user's click targeted a leaf circle. This would print the files for the corresponding SetCloud with an implicit set operation command, without the user having to type it by himself.
+
+\section{Critical Evaluation}
+I have bulit a simple web application prototype, using Flask micro-framework and the Python language. I have also used the HTML and CSS language associated with Flask to generate HTML pages. I have dynamize the website using Javascript and the JQuery framework. And I have used Sqlite and the SQL language to handle the database.
+\subsection{Object Oriented}
+Even though the Flask Application object could be challenging to use in an OO paradigm, I have build my website in this way. This ensure a scalable application, and the fact that each part is separated in a specific file with its class make the whole project easier to understand. It is also useful for the unit testing to build the project that way.
+\subsection{MVC}
+I leveraged the OO paradigm to build my application based on the Model View Controller design pattern. Like for the OO, it allows the code to be clearer, and it simplifies the future implementation for the code.
+\subsection{Security}
+For this project, I have used Jinja built-in protection against XSS attacks. I also used prepared statement to avoid SQL injection. And I have used BCrypt to manage the passwords hashes. I ensure the identity and the rights of the user thanks to Flask Session.
+\begin{lstlisting}[caption = Query with  SQL parameters]
+def set_exists(self, setName, userEmail):
+		self.conn = sqlite3.connect(self.dbFileLocation)
+		res = self.conn.cursor().execute('SELECT cloudset.name FROM cloudset INNER JOIN user ON user.id = cloudset.userId where user.email = ? AND cloudset.name = ?', (userEmail,setName,)).fetchall()
+		return res
+\end{lstlisting}
+\subsection{BCrypt and Flask Session}
+\begin{lstlisting}[caption = Login with BCrypt and Session]
+def login(self):
+		if request.method == 'POST':
+			db = Database("var/sqlite3.db", True)
+			# no htmlentities() or equivalent because flask uses its own xss protection while using render_template()
+			email = request.form.get('inputEmail')
+			inputPassword = request.form.get('inputPassword')
+			res = db.get_user_password(email)
+			if not res or not self.bcrypt.check_password_hash(res[0][0], inputPassword):
+				flash('Wrong credentials.')
+			else:
+				session["user"] = email
+		return self.indexPage()
+\end{lstlisting}
+
+\subsection{Flask in OO}
+\begin{lstlisting}[caption = Login with BCrypt and Session]
+def main():
+	app = Flask(__name__)
+	app.secret_key = os.urandom(24)
+	app.config['SESSION_TYPE'] = 'filesystem'
+	Session(app)
+	app.debug = True
+	controller = Controller(app)
+
+	app.add_url_rule('/', 'indexPage', lambda: controller.indexPage())
+	app.add_url_rule('/register', 'registerPage', lambda: controller.registerPage())
+	app.add_url_rule('/home', 'homePage', lambda: controller.homePage())
+	app.add_url_rule('/logout', 'logout', lambda: controller.logout(), methods=['POST'])
+	app.register_error_handler(404, lambda x: controller.page_not_found())
+	app.run(host=HOST, port=PORT, debug=DEBUG, use_reloader=False)
+
+class Controller:
+	def __init__(self, app):
+		self.app = app
+		self.bcrypt = Bcrypt(self.app)
+\end{lstlisting}
+
+
+\section{Personal Evaluation}
+During this project, I mainly learned about the Flask micro-framework. As I have already built a website application with the Python Bottle micro-framework \cite{bottle}, the learning was easier thanks to the fact the they share common traits. In the same way, I have also learn to build unit test for Flask. The main difficulty was to think about the most efficient and coherent URL hierarchy according to our data and the website I wanted to build. To do so, I have put myself in the place of the user, and have think about what they would need and how. Otherwise, the project was quite a déjà vu for the reason I told above.
+
+\bibliographystyle{ieeetr}
+\bibliography{references_louis_boursier}
+		
+\end{document}

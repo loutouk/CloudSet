@@ -1,0 +1,150 @@
+{% extends "min_base.html" %}
+{% block content %}
+
+<form action="{{ url_for('logout') }}" method="post" enctype="multipart/form-data">
+   <button type="submit" class="btn btn-secondary">Logout</button>
+</form>
+
+<form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+   <div class="input-group mb-2 mt-5">
+      <div class="input-group-prepend">
+         <label class="btn btn-secondary" for="fileToUpload">
+         <input id="fileToUpload" type="file" name="fileToUpload" style="display:none;" required>
+         Browse file
+         </label>
+      </div>
+      <input pattern="^[A-Za-z0-9, ]+$" type="text" class="form-control" placeholder="CloudsetA, CloudsetB..." name="tags" id="tags">
+      <div class="input-group-append">
+      <label class="btn btn-primary" for="submitButton">
+      <input type="submit" value="Upload Image" name="submitButton" id="submitButton" style="display:none;">
+      Upload
+      </label>
+    </div>
+   </div>
+</form>
+
+<form action="{{ url_for('search_files_by_sets') }}" method="post">
+   <div class="input-group mb-2">
+      <div class="input-group-prepend">
+         <span class="btn btn-secondary" id="help" style="height: 38px;">Help</span>
+      </div>
+      <input pattern="^(?!.*([,\|&\^\-])\1{1,})[a-zA-Z0-9 ,&\-\^\|]+$" type="text" class="form-control" placeholder="CloudsetA & CloudsetB - CloudsetC..." name="cloudsets" id="cloudsets">
+      <div class="input-group-append">
+         <label class="btn btn-primary" for="submitButtonB" style="box-sizing: content-box;">
+            <input type="submit" value="Search files" name="submitButtonB" id="submitButtonB" style="display:none;">
+            Search files by Cloudset
+         </label>
+      </div>
+   </div>
+</form>
+
+<!-- Triggered by the help -->
+<img id="myImg" src="{{ url_for('static', filename='img/help.png') }}" alt="Set operators" style="display: none;">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+   <!-- The Close Button -->
+   <span id="close" class="close">&times;</span>
+   <!-- Modal Content (The Image) -->
+   <img class="modal-content" id="img01">
+   <!-- Modal Caption (Image Text) -->
+   <div id="caption"></div>
+</div>
+
+<svg width="960" height="960"></svg>
+
+<script type="text/javascript">
+   var svg = d3.select("svg"),
+     margin = 20,
+     diameter = +svg.attr("width"),
+     g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+   
+   var color = d3.scaleLinear()
+     .domain([-1, 5])
+     .range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
+     .interpolate(d3.interpolateHcl);
+   
+   var pack = d3.pack()
+     .size([diameter - margin, diameter - margin])
+     .padding(2);
+   
+   var root = {{data | safe}};
+
+   root = d3.hierarchy(root)
+       .sum(function(d) { return d.size; })
+       .sort(function(a, b) { return b.value - a.value; });
+   
+   var focus = root,
+       nodes = pack(root).descendants(),
+       view;
+   
+   var circle = g.selectAll("circle")
+     .data(nodes)
+     .enter().append("circle")
+       .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
+       .style("fill", function(d) { return d.children ? color(d.depth) : null; })
+       .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
+   
+   var text = g.selectAll("text")
+     .data(nodes)
+     .enter().append("text")
+       .attr("class", "label")
+       .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
+       .style("display", function(d) { return d.parent === root ? "inline" : "none"; })
+       .text(function(d) { return d.data.name; });
+   
+   var node = g.selectAll("circle,text");
+   
+   svg
+       .style("background", "transparent")
+       .style("margin", "auto")
+       .on("click", function() { zoom(root); });
+   
+   zoomTo([root.x, root.y, root.r * 2 + margin]);
+   
+   function zoom(d) {
+     var focus0 = focus; focus = d;
+   
+     var transition = d3.transition()
+         .duration(d3.event.altKey ? 7500 : 750)
+         .tween("zoom", function(d) {
+           var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+           return function(t) { zoomTo(i(t)); };
+         });
+   
+     transition.selectAll("text")
+       .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
+         .style("fill-opacity", function(d) { return d.parent === focus ? 1 : 0; })
+         .on("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
+         .on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
+   }
+   
+   function zoomTo(v) {
+     var k = diameter / v[2]; view = v;
+     node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
+     circle.attr("r", function(d) { return d.r * k; });
+   }
+   
+</script>
+<script type="text/javascript">
+   // Get the modal
+   var modal = document.getElementById('myModal');
+   
+   // Get the image and insert it inside the modal - use its "alt" text as a caption
+   var img = document.getElementById('myImg');
+   var modalImg = document.getElementById("img01");
+   var captionText = document.getElementById("caption");
+   document.getElementById("help").addEventListener("click", function(){
+       modal.style.display = "block";
+       modalImg.src = img.src;
+       captionText.innerHTML = img.alt;
+   });
+   
+   // Get the <span> element that closes the modal
+   var span = document.getElementById("close");
+   
+   // When the user clicks on <span> (x), close the modal
+   span.onclick = function() { 
+     modal.style.display = "none";
+   }
+</script>
+{% endblock %}}

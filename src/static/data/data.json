@@ -1,0 +1,788 @@
+{
+ "name": "DefaultSet", 
+ "children": [
+  {
+   "name": "dusk", 
+   "size": 1
+  }, 
+  {
+   "name": "italy", 
+   "size": 1
+  }, 
+  {
+   "name": "sunset", 
+   "size": 1
+  }, 
+  {
+   "name": "moutnain", 
+   "size": 1
+  }, 
+  {
+   "name": "wall", 
+   "size": 1
+  }, 
+  {
+   "name": "china", 
+   "size": 1
+  }, 
+  {
+   "name": "river", 
+   "size": 1
+  }, 
+  {
+   "name": "canoe", 
+   "size": 1
+  }, 
+  {
+   "name": "kayak", 
+   "size": 1
+  }, 
+  {
+   "name": "underwater", 
+   "size": 1
+  }, 
+  {
+   "name": "statue", 
+   "size": 1
+  }, 
+  {
+   "name": "island", 
+   "size": 1
+  }, 
+  {
+   "name": "wave", 
+   "size": 1
+  }, 
+  {
+   "name": "white", 
+   "size": 1
+  }, 
+  {
+   "name": "dark", 
+   "size": 1
+  }, 
+  {
+   "name": "windmill", 
+   "size": 1
+  }, 
+  {
+   "name": "hill", 
+   "size": 1
+  }, 
+  {
+   "name": "house", 
+   "children": [
+    {
+     "name": "dusk", 
+     "size": 1
+    }, 
+    {
+     "name": "italy", 
+     "size": 1
+    }, 
+    {
+     "name": "sunset", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "coast", 
+   "children": [
+    {
+     "name": "dusk", 
+     "size": 1
+    }, 
+    {
+     "name": "italy", 
+     "size": 1
+    }, 
+    {
+     "name": "sunset", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "night", 
+   "children": [
+    {
+     "name": "moutnain", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "asia", 
+   "children": [
+    {
+     "name": "underwater", 
+     "size": 1
+    }, 
+    {
+     "name": "statue", 
+     "size": 1
+    }, 
+    {
+     "name": "island", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "lake", 
+   "children": [
+    {
+     "name": "river", 
+     "size": 1
+    }, 
+    {
+     "name": "canoe", 
+     "size": 1
+    }, 
+    {
+     "name": "kayak", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "adventure", 
+   "children": [
+    {
+     "name": "river", 
+     "size": 1
+    }, 
+    {
+     "name": "canoe", 
+     "size": 1
+    }, 
+    {
+     "name": "kayak", 
+     "size": 1
+    }, 
+    {
+     "name": "underwater", 
+     "size": 1
+    }, 
+    {
+     "name": "statue", 
+     "size": 1
+    }, 
+    {
+     "name": "island", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "cliff", 
+   "children": [
+    {
+     "name": "wave", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "grass", 
+   "children": [
+    {
+     "name": "wave", 
+     "size": 1
+    }, 
+    {
+     "name": "windmill", 
+     "size": 1
+    }, 
+    {
+     "name": "hill", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "castle", 
+   "children": [
+    {
+     "name": "white", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "forest", 
+   "children": [
+    {
+     "name": "white", 
+     "size": 1
+    }, 
+    {
+     "name": "dark", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "snow", 
+   "children": [
+    {
+     "name": "white", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "fir", 
+   "children": [
+    {
+     "name": "dark", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "ocean", 
+   "children": [
+    {
+     "name": "dusk", 
+     "size": 1
+    }, 
+    {
+     "name": "italy", 
+     "size": 1
+    }, 
+    {
+     "name": "sunset", 
+     "size": 1
+    }, 
+    {
+     "name": "underwater", 
+     "size": 1
+    }, 
+    {
+     "name": "statue", 
+     "size": 1
+    }, 
+    {
+     "name": "island", 
+     "size": 1
+    }, 
+    {
+     "name": "wave", 
+     "size": 1
+    }, 
+    {
+     "name": "coast", 
+     "children": [
+      {
+       "name": "dusk", 
+       "size": 1
+      }, 
+      {
+       "name": "italy", 
+       "size": 1
+      }, 
+      {
+       "name": "sunset", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "cliff", 
+     "children": [
+      {
+       "name": "wave", 
+       "size": 1
+      }
+     ]
+    }
+   ]
+  }, 
+  {
+   "name": "rock", 
+   "children": [
+    {
+     "name": "moutnain", 
+     "size": 1
+    }, 
+    {
+     "name": "wave", 
+     "size": 1
+    }, 
+    {
+     "name": "night", 
+     "children": [
+      {
+       "name": "moutnain", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "cliff", 
+     "children": [
+      {
+       "name": "wave", 
+       "size": 1
+      }
+     ]
+    }
+   ]
+  }, 
+  {
+   "name": "road", 
+   "children": [
+    {
+     "name": "windmill", 
+     "size": 1
+    }, 
+    {
+     "name": "hill", 
+     "size": 1
+    }
+   ]
+  }, 
+  {
+   "name": "green", 
+   "children": [
+    {
+     "name": "wave", 
+     "size": 1
+    }, 
+    {
+     "name": "windmill", 
+     "size": 1
+    }, 
+    {
+     "name": "hill", 
+     "size": 1
+    }, 
+    {
+     "name": "grass", 
+     "children": [
+      {
+       "name": "wave", 
+       "size": 1
+      }, 
+      {
+       "name": "windmill", 
+       "size": 1
+      }, 
+      {
+       "name": "hill", 
+       "size": 1
+      }
+     ]
+    }
+   ]
+  }, 
+  {
+   "name": "blue", 
+   "children": [
+    {
+     "name": "moutnain", 
+     "size": 1
+    }, 
+    {
+     "name": "underwater", 
+     "size": 1
+    }, 
+    {
+     "name": "statue", 
+     "size": 1
+    }, 
+    {
+     "name": "island", 
+     "size": 1
+    }, 
+    {
+     "name": "wave", 
+     "size": 1
+    }, 
+    {
+     "name": "cliff", 
+     "children": [
+      {
+       "name": "wave", 
+       "size": 1
+      }
+     ]
+    }
+   ]
+  }, 
+  {
+   "name": "water", 
+   "children": [
+    {
+     "name": "dusk", 
+     "size": 1
+    }, 
+    {
+     "name": "italy", 
+     "size": 1
+    }, 
+    {
+     "name": "sunset", 
+     "size": 1
+    }, 
+    {
+     "name": "river", 
+     "size": 1
+    }, 
+    {
+     "name": "canoe", 
+     "size": 1
+    }, 
+    {
+     "name": "kayak", 
+     "size": 1
+    }, 
+    {
+     "name": "underwater", 
+     "size": 1
+    }, 
+    {
+     "name": "statue", 
+     "size": 1
+    }, 
+    {
+     "name": "island", 
+     "size": 1
+    }, 
+    {
+     "name": "wave", 
+     "size": 1
+    }, 
+    {
+     "name": "coast", 
+     "children": [
+      {
+       "name": "dusk", 
+       "size": 1
+      }, 
+      {
+       "name": "italy", 
+       "size": 1
+      }, 
+      {
+       "name": "sunset", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "lake", 
+     "children": [
+      {
+       "name": "river", 
+       "size": 1
+      }, 
+      {
+       "name": "canoe", 
+       "size": 1
+      }, 
+      {
+       "name": "kayak", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "adventure", 
+     "children": [
+      {
+       "name": "river", 
+       "size": 1
+      }, 
+      {
+       "name": "canoe", 
+       "size": 1
+      }, 
+      {
+       "name": "kayak", 
+       "size": 1
+      }, 
+      {
+       "name": "underwater", 
+       "size": 1
+      }, 
+      {
+       "name": "statue", 
+       "size": 1
+      }, 
+      {
+       "name": "island", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "cliff", 
+     "children": [
+      {
+       "name": "wave", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "ocean", 
+     "children": [
+      {
+       "name": "dusk", 
+       "size": 1
+      }, 
+      {
+       "name": "italy", 
+       "size": 1
+      }, 
+      {
+       "name": "sunset", 
+       "size": 1
+      }, 
+      {
+       "name": "underwater", 
+       "size": 1
+      }, 
+      {
+       "name": "statue", 
+       "size": 1
+      }, 
+      {
+       "name": "island", 
+       "size": 1
+      }, 
+      {
+       "name": "wave", 
+       "size": 1
+      }, 
+      {
+       "name": "coast", 
+       "children": [
+        {
+         "name": "dusk", 
+         "size": 1
+        }, 
+        {
+         "name": "italy", 
+         "size": 1
+        }, 
+        {
+         "name": "sunset", 
+         "size": 1
+        }
+       ]
+      }, 
+      {
+       "name": "cliff", 
+       "children": [
+        {
+         "name": "wave", 
+         "size": 1
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }, 
+  {
+   "name": "mountain", 
+   "children": [
+    {
+     "name": "river", 
+     "size": 1
+    }, 
+    {
+     "name": "canoe", 
+     "size": 1
+    }, 
+    {
+     "name": "kayak", 
+     "size": 1
+    }, 
+    {
+     "name": "white", 
+     "size": 1
+    }, 
+    {
+     "name": "lake", 
+     "children": [
+      {
+       "name": "river", 
+       "size": 1
+      }, 
+      {
+       "name": "canoe", 
+       "size": 1
+      }, 
+      {
+       "name": "kayak", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "castle", 
+     "children": [
+      {
+       "name": "white", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "snow", 
+     "children": [
+      {
+       "name": "white", 
+       "size": 1
+      }
+     ]
+    }
+   ]
+  }, 
+  {
+   "name": "nature", 
+   "children": [
+    {
+     "name": "wall", 
+     "size": 1
+    }, 
+    {
+     "name": "china", 
+     "size": 1
+    }, 
+    {
+     "name": "river", 
+     "size": 1
+    }, 
+    {
+     "name": "canoe", 
+     "size": 1
+    }, 
+    {
+     "name": "kayak", 
+     "size": 1
+    }, 
+    {
+     "name": "wave", 
+     "size": 1
+    }, 
+    {
+     "name": "white", 
+     "size": 1
+    }, 
+    {
+     "name": "windmill", 
+     "size": 1
+    }, 
+    {
+     "name": "hill", 
+     "size": 1
+    }, 
+    {
+     "name": "lake", 
+     "children": [
+      {
+       "name": "river", 
+       "size": 1
+      }, 
+      {
+       "name": "canoe", 
+       "size": 1
+      }, 
+      {
+       "name": "kayak", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "cliff", 
+     "children": [
+      {
+       "name": "wave", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "grass", 
+     "children": [
+      {
+       "name": "wave", 
+       "size": 1
+      }, 
+      {
+       "name": "windmill", 
+       "size": 1
+      }, 
+      {
+       "name": "hill", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "castle", 
+     "children": [
+      {
+       "name": "white", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "road", 
+     "children": [
+      {
+       "name": "windmill", 
+       "size": 1
+      }, 
+      {
+       "name": "hill", 
+       "size": 1
+      }
+     ]
+    }, 
+    {
+     "name": "green", 
+     "children": [
+      {
+       "name": "wave", 
+       "size": 1
+      }, 
+      {
+       "name": "windmill", 
+       "size": 1
+      }, 
+      {
+       "name": "hill", 
+       "size": 1
+      }, 
+      {
+       "name": "grass", 
+       "children": [
+        {
+         "name": "wave", 
+         "size": 1
+        }, 
+        {
+         "name": "windmill", 
+         "size": 1
+        }, 
+        {
+         "name": "hill", 
+         "size": 1
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
