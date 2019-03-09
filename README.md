@@ -1,4 +1,4 @@
-# boursier_louis_set09103_cw2
+CloudSet
 Uses Pyton 3+
 
 Make sure to install required dependencies
