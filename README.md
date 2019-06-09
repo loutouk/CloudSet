@@ -1,5 +1,5 @@
 CloudSet
-Uses Pyton 3+
+Uses Python3
 
 Make sure to install required dependencies
 
