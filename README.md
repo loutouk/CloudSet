@@ -1,10 +1,14 @@
-CloudSet
-Uses Python3
+# CloudSet
 
-Make sure to install required dependencies
+The power of the mathematical set to manage your files. Files are hosted on your Google Drive account.
+This app is a prototype that aims to demonstrate the efficiency of set managed files for file storage and search.
+
+Uses Python3 and Flask.
+
+Make sure to install required dependencies.
 
 Usage: python main.py
-# CloudSet
+
 
 ![Preview](https://github.com/loutouk/CloudSet/blob/master/report/LaTeX%20files/images/menu.png)
 
@@ -12,8 +16,7 @@ Usage: python main.py
 ![Preview](https://github.com/loutouk/CloudSet/blob/master/report/LaTeX%20files/images/help.png)
 ----
 
-TODO fix JSON encode to string and not dict
-
-TODO also fix set displays
-
-TODO delete file on server after uploads onto Google Drive
+## TODO 
+a. Fix JSON encode to string and not dict
+b. Fix set displays
+c. Delete file on server after uploads onto Google Drive
