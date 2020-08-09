@@ -17,6 +17,6 @@ Usage: python main.py
 ----
 
 ## TODO 
-*. Fix JSON encode to string and not dict
+* Fix JSON encode to string and not dict
 * Fix set displays
 * Delete file on server after uploads onto Google Drive
