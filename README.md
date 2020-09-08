@@ -1,7 +1,9 @@
 # CloudSet
 
-The power of the mathematical set to manage your files. Files are hosted on your Google Drive account.
-This app is a prototype that aims to demonstrate the efficiency of set managed files for file storage and search.
+## The power of the mathematical set to manage your files. 
+
+Files are hosted on your Google Drive account.
+This app is a prototype that aims to demonstrate the efficiency of set managed files for file storage and file search.
 
 Uses Python3 and Flask.
 
